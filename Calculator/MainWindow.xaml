@@ -4,9 +4,154 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+                
+        mc:Ignorable="d"
+        Title="MainWindow"
+        
+        Height="450" Width="400"
+        MaxHeight="1000" MaxWidth="800"
+        MinHeight="256" MinWidth="192">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Titlebar -->
+        <Label FontFamily="{DynamicResource MaterialDesignFont}"
+               Foreground="#FF616161"
+               FontSize="12"
+               FontWeight="Bold"
+               Grid.ColumnSpan="3"
+               PreviewMouseDown="Label_PreviewMouseDown"
+               MouseEnter="Label_MouseEnter"
+               MouseLeave="Label_MouseLeave">SuperCalc 2000</Label>
+
+        <Grid Grid.Column="3" 
+              HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"/>
+                <ColumnDefinition Width="24"/>
+                <ColumnDefinition Width="24"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="BtnMinimize" Click="BtnMinimize_Click" Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Padding="0" Height="24">
+                <materialDesign:PackIcon Kind="WindowMinimize" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Width="24"></materialDesign:PackIcon>
+            </Button>
+            <Button Name="BtnClose" Click="BtnClose_Click" Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="2" Padding="0" Height="24">
+                <materialDesign:PackIcon Kind="WindowClose" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Width="24"></materialDesign:PackIcon>
+            </Button>
+
+        </Grid>
+        
+        <!-- Screen -->
+        <materialDesign:Card Grid.ColumnSpan="4"
+                             Grid.Row="1"
+                             Margin="5" 
+                             VerticalAlignment="Stretch">
+            <TextBlock Name="TblOutput"
+                       FontFamily="{DynamicResource MaterialDesignFont}"
+                       Margin="5"
+                       FontSize="36"
+                       TextWrapping="Wrap"></TextBlock>
+        </materialDesign:Card>
+
+        <!-- BUTTONZ -->
+        <materialDesign:Card Grid.Column="0" Grid.Row="2" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">CE</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="1" Grid.Row="2" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">DEL</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="2" Grid.Row="2" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">*</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="3" Grid.Row="2" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">/</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="0" Grid.Row="3" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">7</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="1" Grid.Row="3" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">8</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="2" Grid.Row="3" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">9</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="3" Grid.Row="3" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">-</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="0" Grid.Row="4" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">4</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="1" Grid.Row="4" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">5</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="2" Grid.Row="4" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">6</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">+</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="0" Grid.Row="5" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">1</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="1" Grid.Row="5" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">2</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="2" Grid.Row="5" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">3</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">0</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="2" Grid.Row="6" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">.</Button>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Column="3" Grid.Row="6" Margin="5,0,5,5" VerticalAlignment="Stretch">
+            <Button Click="Btn_Click" Style="{DynamicResource MaterialDesignToolButton}" Padding="0" Height="Auto">=</Button>
+        </materialDesign:Card>
+
     </Grid>
 </Window>
